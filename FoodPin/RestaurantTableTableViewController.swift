@@ -81,6 +81,9 @@ class RestaurantTableViewController: UITableViewController {
 //        tableView.deselectRow(at: indexPath, animated: false)
 }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt IndexPath: IndexPath) {
+        
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
