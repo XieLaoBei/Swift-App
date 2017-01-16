@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FjR-fL-Eu1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w2i-9f-QaR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="ds7-mK-ZVp">
+            <objects>
+                <viewController id="fPf-2P-Xep" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x82-xT-xwq"/>
+                        <viewControllerLayoutGuide type="bottom" id="qNP-jE-WHr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0zx-eX-GSC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLj-X9-59k">
+                                <rect key="frame" x="27" y="208" width="320" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogH-uq-e7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="36"/>
+        </scene>
         <!--Restaurant Table View Controller-->
         <scene sceneID="q0f-c3-nFf">
             <objects>
@@ -57,6 +80,7 @@
                                     <outlet property="nameLabel" destination="vJa-22-3R6" id="4O3-OL-YYG"/>
                                     <outlet property="thumbnailImageView" destination="Swa-yJ-uyU" id="2Sg-jp-VLf"/>
                                     <outlet property="typeLabel" destination="dLG-Gi-SEN" id="gBw-3w-2Gs"/>
+                                    <segue destination="fPf-2P-Xep" kind="show" id="uli-80-PTs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,10 +89,29 @@
                             <outlet property="delegate" destination="FjR-fL-Eu1" id="o7y-vN-QzL"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="dxU-MV-mnJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhf-06-OM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-663" y="36"/>
+            <point key="canvasLocation" x="276" y="35.532233883058474"/>
+        </scene>
+        <!--FoodPin-->
+        <scene sceneID="g9n-PD-fId">
+            <objects>
+                <navigationController title="FoodPin" automaticallyAdjustsScrollViewInsets="NO" id="w2i-9f-QaR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vm-Wz-1rW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FjR-fL-Eu1" kind="relationship" relationship="rootViewController" id="iDK-aC-JQZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jkt-A4-bkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-663.20000000000005" y="35.532233883058474"/>
         </scene>
     </scenes>
 </document>

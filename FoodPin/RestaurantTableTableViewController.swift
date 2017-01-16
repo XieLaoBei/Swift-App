@@ -81,9 +81,66 @@ class RestaurantTableViewController: UITableViewController {
 //        tableView.deselectRow(at: indexPath, animated: false)
 }
 
+    // Display remove in Row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt IndexPath: IndexPath) {
-        
+    // Delete All about the deleted Row
+        if editingStyle == .delete {
+            self.restaurantNames.remove(at: IndexPath.row)
+            self.restaurantLocations.remove(at: IndexPath.row)
+            self.restaurantTypes.remove(at: IndexPath.row)
+            self.restaurantImages.remove(at: IndexPath.row)
+        }
+        /*
+        print("Total item: \(self.restaurantNames.count)")
+        for name in restaurantNames {
+            print(name)
+        }
+        */
+        // Reload and refresh the tableVeiw
+            self.tableView.deleteRows(at: [IndexPath], with: .fade)
     }
+    
+    
+    // add editActionForRowAtIndexPath(Optional)
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
+            let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .actionSheet)
+            let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.default, handler: nil)
+            let facebookAction = UIAlertAction(title: "FaceBook", style: UIAlertActionStyle.default, handler: nil)
+            let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            shareMenu.addAction(twitterAction)
+            shareMenu.addAction(facebookAction)
+            shareMenu.addAction(emailAction)
+            shareMenu.addAction(cancelAction)
+            
+            self.present(shareMenu, animated:true, completion: nil)
+        }
+    )
+    
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler: {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
+    
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantLocations.remove(at: indexPath.row)
+            self.restaurantTypes.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    )
+        // How to change the color of Action button text ?
+        shareAction.backgroundColor = UIColor(red: 0.25, green: 0.75, blue: 1.00, alpha: 1.00)
+        deleteAction.backgroundColor = UIColor(red: 0.74, green: 2.42, blue: 1.61, alpha: 1.00)
+        
+        
+    return [deleteAction, shareAction]
+}
+
+
+
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
