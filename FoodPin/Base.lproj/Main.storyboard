@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Contorller-->
         <scene sceneID="ds7-mK-ZVp">
             <objects>
-                <viewController id="fPf-2P-Xep" sceneMemberID="viewController">
+                <viewController title="Detail View Contorller" id="fPf-2P-Xep" customClass="DetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x82-xT-xwq"/>
                         <viewControllerLayoutGuide type="bottom" id="qNP-jE-WHr"/>
@@ -27,6 +27,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="gLj-X9-59k" id="N6o-a0-JDT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogH-uq-e7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="276" y="35.532233883058474"/>
         </scene>
-        <!--FoodPin-->
+        <!--Navigation Controller-->
         <scene sceneID="g9n-PD-fId">
             <objects>
-                <navigationController title="FoodPin" automaticallyAdjustsScrollViewInsets="NO" id="w2i-9f-QaR" sceneMemberID="viewController">
+                <navigationController title="Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="w2i-9f-QaR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vm-Wz-1rW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

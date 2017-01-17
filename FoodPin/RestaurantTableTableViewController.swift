@@ -42,17 +42,17 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
-    
+/*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-// Create the title label on the Alert Message above,difine optionMenu
+ // Create the title label on the Alert Message above,difine optionMenu
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-// Create the cancel Alert Action
+ // Create the cancel Alert Action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil); optionMenu.addAction(cancelAction)
-// difine the action when optionMenu be pressed 
+ // difine the action when optionMenu be pressed
         self.present(optionMenu, animated: true, completion: nil)
         
-// First Meet Closure !! Start
+ // First Meet Closure !! Start
         let callActionHandler = {(action: UIAlertAction!) -> Void in
             
         let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, The Call feature is not available yet, Plaese retry later", preferredStyle: .alert)
@@ -61,13 +61,13 @@ class RestaurantTableViewController: UITableViewController {
             
         self.present(alertMessage, animated: true, completion: nil)
     }
-// Closure complate !
+ // Closure complate !
         
         let callAction = UIAlertAction(title: "Call" + "123-000-\(indexPath.row)", style: UIAlertActionStyle.default, handler: callActionHandler)
         
         optionMenu.addAction(callAction)
 
-// Create isVisitedAction
+ // Create isVisitedAction
         let isVisitedAction = UIAlertAction(title: "I' ve been here", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
@@ -78,9 +78,9 @@ class RestaurantTableViewController: UITableViewController {
         
         // Change the color back immediately when the Animated over
         tableView.deselectRow(at: indexPath, animated: true)
-//        tableView.deselectRow(at: indexPath, animated: false)
+ //        tableView.deselectRow(at: indexPath, animated: false)
 }
-
+*/
     // Display remove in Row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt IndexPath: IndexPath) {
     // Delete All about the deleted Row
