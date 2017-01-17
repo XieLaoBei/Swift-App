@@ -28,7 +28,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="view" destination="gLj-X9-59k" id="N6o-a0-JDT"/>
+                        <outlet property="restaurantImageView" destination="gLj-X9-59k" id="f0n-ya-QuE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogH-uq-e7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wUi-4B-dwg" id="lkt-Qv-hiv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-yJ-uyU">
@@ -83,7 +83,7 @@
                                     <outlet property="nameLabel" destination="vJa-22-3R6" id="4O3-OL-YYG"/>
                                     <outlet property="thumbnailImageView" destination="Swa-yJ-uyU" id="2Sg-jp-VLf"/>
                                     <outlet property="typeLabel" destination="dLG-Gi-SEN" id="gBw-3w-2Gs"/>
-                                    <segue destination="fPf-2P-Xep" kind="show" id="uli-80-PTs"/>
+                                    <segue destination="fPf-2P-Xep" kind="show" identifier="showRestaurantDetail" id="uli-80-PTs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

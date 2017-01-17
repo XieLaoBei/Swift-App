@@ -139,7 +139,14 @@ class RestaurantTableViewController: UITableViewController {
 }
 
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if segue.identifier == "showRestaurantDetail" {
+            if let IndexPath = self.tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! DetailViewController
+                destinationController.restaurantImage = self.restaurantImages[IndexPath.row]
+            }
+        }
+    }
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
