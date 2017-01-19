@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3027F9E1E2F6C4800F29B4B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3027F9D1E2F6C4800F29B4B /* Restaurant.swift */; };
 		E336F5911E226FA9005C1E00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336F5901E226FA9005C1E00 /* AppDelegate.swift */; };
 		E336F5931E226FA9005C1E00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336F5921E226FA9005C1E00 /* ViewController.swift */; };
 		E336F5961E226FA9005C1E00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E336F5941E226FA9005C1E00 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3027F9D1E2F6C4800F29B4B /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E336F58D1E226FA9005C1E00 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E336F5901E226FA9005C1E00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E336F5921E226FA9005C1E00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				E336F5BE1E227191005C1E00 /* RestaurantTableTableViewController.swift */,
 				E3FDBD9A1E279381005B98ED /* CustomTableViewCell.swift */,
 				E341D0101E2E21CB009E466E /* DetailViewController.swift */,
+				E3027F9D1E2F6C4800F29B4B /* Restaurant.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				E336F5BF1E227191005C1E00 /* RestaurantTableTableViewController.swift in Sources */,
 				E336F5931E226FA9005C1E00 /* ViewController.swift in Sources */,
+				E3027F9E1E2F6C4800F29B4B /* Restaurant.swift in Sources */,
 				E341D0111E2E21CB009E466E /* DetailViewController.swift in Sources */,
 				E3FDBD9B1E279381005B98ED /* CustomTableViewCell.swift in Sources */,
 				E336F5911E226FA9005C1E00 /* AppDelegate.swift in Sources */,
