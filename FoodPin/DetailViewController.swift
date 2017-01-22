@@ -8,16 +8,60 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var restaurantImageView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
     var restaurantImage: String!
+    
+    var restaurant: Restaurant!
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DetailTableViewCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.fieldLabel.text = "Name"
+            cell.valueLabel.text = restaurant.name
+        case 1:
+            cell.fieldLabel.text = "Type"
+            cell.valueLabel.text = restaurant.type
+        case 2:
+            cell.fieldLabel.text = "Location"
+            cell.valueLabel.text = restaurant.location
+        case 3:
+            cell.fieldLabel.text = "Been here"
+            cell.valueLabel.text = (restaurant.isVisited) ?  "Yes,I've been here before" : "No"
+        default:
+            cell.fieldLabel.text = ""
+            cell.fieldLabel.text = ""
+            
+            cell.backgroundColor = UIColor.clear
+        }
+        return cell
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Display the selected restaurant image.
-        self.restaurantImageView.image = UIImage(named: restaurantImage)
+        self.restaurantImageView.image = UIImage(named: restaurant.image)
+        self.extendedLayoutIncludesOpaqueBars = false
+        
+        self.tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect())
+        
+        self.tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
