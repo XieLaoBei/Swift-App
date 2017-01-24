@@ -61,6 +61,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         title = self.restaurant.name
 //        navigationController?.hidesBarsOnSwipe = false
+        
+        tableView.estimatedRowHeight = 36.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
