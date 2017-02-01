@@ -12,10 +12,18 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet var restaurantImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func close(segue: UIStoryboardSegue) {
+    }
     
     var restaurantImage: String!
     
     var restaurant: Restaurant!
+    
+    // Add canPerformUnwindSegueAction for close Button segue
+    //override func  canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
+      //  return true
+    //}
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
