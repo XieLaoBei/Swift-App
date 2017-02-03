@@ -18,6 +18,7 @@
 		E341D0111E2E21CB009E466E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341D0101E2E21CB009E466E /* DetailViewController.swift */; };
 		E39AE0F51E34A0EE005C1580 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39AE0F41E34A0EE005C1580 /* DetailTableViewCell.swift */; };
 		E39B82671E423203003A39D7 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B82661E423203003A39D7 /* ReviewViewController.swift */; };
+		E39B82691E44EA88003A39D7 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B82681E44EA88003A39D7 /* ShareViewController.swift */; };
 		E3FDBD991E278B3D005B98ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3FDBD981E278B3D005B98ED /* Assets.xcassets */; };
 		E3FDBD9B1E279381005B98ED /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FDBD9A1E279381005B98ED /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		E341D0101E2E21CB009E466E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E39AE0F41E34A0EE005C1580 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		E39B82661E423203003A39D7 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		E39B82681E44EA88003A39D7 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		E3FDBD981E278B3D005B98ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3FDBD9A1E279381005B98ED /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				E3027F9D1E2F6C4800F29B4B /* Restaurant.swift */,
 				E39AE0F41E34A0EE005C1580 /* DetailTableViewCell.swift */,
 				E39B82661E423203003A39D7 /* ReviewViewController.swift */,
+				E39B82681E44EA88003A39D7 /* ShareViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				E3027F9E1E2F6C4800F29B4B /* Restaurant.swift in Sources */,
 				E341D0111E2E21CB009E466E /* DetailViewController.swift in Sources */,
 				E3FDBD9B1E279381005B98ED /* CustomTableViewCell.swift in Sources */,
+				E39B82691E44EA88003A39D7 /* ShareViewController.swift in Sources */,
 				E39B82671E423203003A39D7 /* ReviewViewController.swift in Sources */,
 				E336F5911E226FA9005C1E00 /* AppDelegate.swift in Sources */,
 			);
