@@ -52,6 +52,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8p-vv-VH9">
+                                                    <rect key="frame" x="296" y="13" width="16" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="VkO-Ep-3TP"/>
+                                                        <constraint firstAttribute="width" constant="16" id="eud-0A-kkT"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="sfl-9b-FXz"/>
+                                                    </constraints>
+                                                    <state key="normal" image="arrow"/>
+                                                    <connections>
+                                                        <segue destination="Wel-hd-ooB" kind="presentation" identifier="showMap" id="6q4-F2-C2B"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tAl-bB-Lnd" firstAttribute="bottom" secondItem="OMG-gJ-bRZ" secondAttribute="bottomMargin" constant="-0.5" id="CCc-EW-CRr"/>
@@ -61,10 +73,13 @@
                                                 <constraint firstItem="tAl-bB-Lnd" firstAttribute="top" secondItem="OMG-gJ-bRZ" secondAttribute="topMargin" id="ghb-5U-pdn"/>
                                                 <constraint firstItem="tAl-bB-Lnd" firstAttribute="leading" secondItem="LfQ-Fk-x4B" secondAttribute="trailing" constant="9" id="icc-lL-ncn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="tAl-bB-Lnd" secondAttribute="trailing" constant="10" id="j1U-Cr-hoY"/>
+                                                <constraint firstItem="S8p-vv-VH9" firstAttribute="centerY" secondItem="tAl-bB-Lnd" secondAttribute="centerY" id="pBz-Iw-MEv"/>
+                                                <constraint firstItem="S8p-vv-VH9" firstAttribute="trailing" secondItem="OMG-gJ-bRZ" secondAttribute="trailingMargin" id="q37-g3-mWB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fieldLabel" destination="LfQ-Fk-x4B" id="koI-kt-UPz"/>
+                                            <outlet property="mapButton" destination="S8p-vv-VH9" id="EE1-l4-4XO"/>
                                             <outlet property="valueLabel" destination="tAl-bB-Lnd" id="eYx-1C-tM9"/>
                                         </connections>
                                     </tableViewCell>
@@ -386,8 +401,37 @@
             </objects>
             <point key="canvasLocation" x="1864" y="845"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="1Ai-Ko-69M">
+            <objects>
+                <viewController id="Wel-hd-ooB" customClass="MapViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wED-yx-jKv"/>
+                        <viewControllerLayoutGuide type="bottom" id="47M-Nq-glT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J6c-XV-bJ9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-Xp-2qT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G7M-Lk-MvY"/>
+                    <connections>
+                        <outlet property="mapView" destination="rbE-Xp-2qT" id="xLd-6o-XGd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acp-YD-oTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070.625" y="842.95774647887322"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow" width="64" height="64"/>
         <image name="bad" width="64" height="64"/>
         <image name="cafeloisl" width="448" height="448"/>
         <image name="close" width="64" height="64"/>
