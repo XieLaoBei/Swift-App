@@ -10,56 +10,14 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
+    @IBAction func unwindToHomeScreen (segue: UIStoryboardSegue) {
+        
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.restaurants.count
     }
 
-    /*
-    var restaurants:[Restaurant] = [
-        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong",
-                   image: "cafedeadend.jpg", isVisited: false),
-        Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image: "homei.jpg",
-                   isVisited: false),
-        Restaurant(name: "Teakha", type: "Tea House", location: "Hong Kong", image:
-            "teakha.jpg", isVisited: false),
-        Restaurant(name: "Cafe loisl", type: "Austrian / Causual Drink", location: "Hong Kong",
-                   image: "cafeloisl.jpg", isVisited: false),
-        Restaurant(name: "Petite Oyster", type: "French", location: "Hong Kong", image:
-            "petiteoyster.jpg", isVisited: false),
-        Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "Hong Kong", image:
-            "forkeerestaurant.jpg", isVisited: false),
-        Restaurant(name: "Po's Atelier", type: "Bakery", location: "Hong Kong", image:
-            "posatelier.jpg", isVisited: false),
-        Restaurant(name: "Bourke Street Backery", type: "Chocolate", location: "Sydney", image:
-            "bourkestreetbakery.jpg", isVisited: false),
-        Restaurant(name: "Haigh's Chocolate", type: "Cafe", location: "Sydney", image:
-            "haighschocolate.jpg", isVisited: false),
-        Restaurant(name: "Palomino Espresso", type: "American / Seafood", location: "Sydney",
-                   image: "palominoespresso.jpg", isVisited: false),
-        Restaurant(name: "Upstate", type: "American", location: "New York", image:
-            "upstate.jpg", isVisited: false),
-        Restaurant(name: "Traif", type: "American", location: "New York", image: "traif.jpg",
-                   isVisited: false),
-        Restaurant(name: "Graham Avenue Meats", type: "Breakfast & Brunch", location: "NewYork",
-                   image: "grahamavenuemeats.jpg", isVisited: false),
-        Restaurant(name: "Waffle & Wolf", type: "Coffee & Tea", location: "New York", image:
-                "wafflewolf.jpg", isVisited: false),
-        Restaurant(name: "Five Leaves", type: "Coffee & Tea", location: "New York", image:
-                "fiveleaves.jpg", isVisited: false),
-        Restaurant(name: "Cafe Lore", type: "Latin American", location: "New York", image:
-                "cafelore.jpg", isVisited: false),
-        Restaurant(name: "Confessional", type: "Spanish", location: "New York", image:
-                "confessional.jpg", isVisited: false),
-        Restaurant(name: "Barrafina", type: "Spanish", location: "London", image:
-                "barrafina.jpg", isVisited: false),
-        Restaurant(name: "Donostia", type: "Spanish", location: "London", image:
-                "donostia.jpg", isVisited: false),
-        Restaurant(name: "Royal Oak", type: "British", location: "London", image:
-                "royaloak.jpg", isVisited: false),
-        Restaurant(name: "Thai Cafe", type: "Thai", location: "London", image: "thaicafe.jpg",
-                       isVisited: false)
-    ]
-    */
     
     var restaurants:[Restaurant] = [
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po HingFong, Sheung Wan, Hong Kong", image: "cafedeadend.jpg", isVisited: true),
@@ -112,45 +70,6 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
-/*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
- // Create the title label on the Alert Message above,difine optionMenu
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
- // Create the cancel Alert Action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil); optionMenu.addAction(cancelAction)
- // difine the action when optionMenu be pressed
-        self.present(optionMenu, animated: true, completion: nil)
-        
- // First Meet Closure !! Start
-        let callActionHandler = {(action: UIAlertAction!) -> Void in
-            
-        let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, The Call feature is not available yet, Plaese retry later", preferredStyle: .alert)
-            
-        alertMessage.addAction(UIAlertAction(title: "OK!", style: .default, handler: nil))
-            
-        self.present(alertMessage, animated: true, completion: nil)
-    }
- // Closure complate !
-        
-        let callAction = UIAlertAction(title: "Call" + "123-000-\(indexPath.row)", style: UIAlertActionStyle.default, handler: callActionHandler)
-        
-        optionMenu.addAction(callAction)
-
- // Create isVisitedAction
-        let isVisitedAction = UIAlertAction(title: "I' ve been here", style: .default, handler: {
-            (action:UIAlertAction!) -> Void in
-            
-            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-        })
-        optionMenu.addAction(isVisitedAction)
-        
-        // Change the color back immediately when the Animated over
-        tableView.deselectRow(at: indexPath, animated: true)
- //        tableView.deselectRow(at: indexPath, animated: false)
-}
-*/
     // Display remove in Row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt IndexPath: IndexPath) {
     // Delete All about the deleted Row

@@ -24,7 +24,7 @@ class ShareViewController: UIViewController {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
-        backgroundImageView.addSubview(blurEffectView)
+//        backgroundImageView.addSubview(blurEffectView)
         
         // Move the buttons off screen (top)
         let translateUp = CGAffineTransform(translationX:0, y:-1000)

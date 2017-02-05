@@ -14,6 +14,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBAction func close(segue: UIStoryboardSegue) {
     }
+//    @IBAction func showMap(segue: UITapGestureRecognizer) {
+//        print("3453434")
+//    }
+/*2017-02-05 15:43:49.673494 FoodPin[1627:863167] [Warning] WARNING: A Gesture recognizer (<UITapGestureRecognizer: 0x1668b060; state = Possible; view = <UILabel 0x166df550>; target= <(action=perform:, target=<UIStoryboardShowSegueTemplate 0x16694610>)>>) was setup in a storyboard/xib to be added to more than one view (-><UILabel: 0x166e35c0; frame = (126 8; 270 27); text = 'Value'; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; gestureRecognizers = <NSArray: 0x166e4fe0>; layer = <_UILabelLayer: 0x166e3710>>) at a time, this was never allowed, and is now enforced. Beginning with iOS 9.0 it will be put in the first view it is loaded into.
+ 
+
+ */
+    @IBAction func showMap(_ sender: Any) {
+        print("3453434")
+    }
     
     var restaurantImage: String!
     
@@ -32,7 +42,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DetailTableViewCell
         
-        cell.mapButton.isHidden = true
+        //cell.mapButton.isHidden = true
         
         switch indexPath.row {
         case 0:
@@ -44,7 +54,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         case 2:
             cell.fieldLabel.text = "Location"
             cell.valueLabel.text = restaurant.location
-            cell.mapButton.isHidden = false
+            //cell.mapButton.isHidden = false
         case 3:
             cell.fieldLabel.text = "Been here"
             cell.valueLabel.text = (restaurant.isVisited) ?  "Yes,I've been here before" : "No"
@@ -57,6 +67,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    // Tap Label(Cell) trans to other Controller
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 2 {
+            self.performSegue(withIdentifier: "showMap", sender: self)
+        }
+        return
+    }
     
     
     override func viewDidLoad() {
@@ -84,12 +102,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     // segue to MapViewController
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMap" {
             let destinationController = segue.destination as! MapViewController
             destinationController.restaurant = restaurant
         }
     }
+    
+//    override func view
     
     
     override func didReceiveMemoryWarning() {
