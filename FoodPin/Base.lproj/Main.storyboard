@@ -215,9 +215,12 @@
             <objects>
                 <navigationController title="Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="w2i-9f-QaR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vm-Wz-1rW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Vm-Wz-1rW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -466,6 +469,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="FHf-7L-toV" id="db5-Ff-Bay"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGH-vv-4lT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w0V-4i-OLj" userLabel="Exit" sceneMemberID="exit"/>
@@ -595,7 +601,7 @@
             <objects>
                 <navigationController title="New Restaurant" automaticallyAdjustsScrollViewInsets="NO" id="tmO-GT-u0I" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EFm-N8-Ljw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EFm-N8-Ljw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
