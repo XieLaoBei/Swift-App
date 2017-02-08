@@ -14,6 +14,17 @@ class RestaurantTableViewController: UITableViewController {
         
     }
     
+    // Add SearchBar using UISearchController
+    var searchController: UISearchController!
+    var searchResults:[Restaurant] = []
+    
+    func filterContentForSearchText(searchText: String) {
+        searchResults = restaurants.filter({( restaurant: Restaurant) -> Bool in
+            let nameMatch = restaurant.name.range(of: searchText, options: NSString.CompareOptions.CaseInsensitiveSearch)
+            return nameMatch != nil
+        })
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.restaurants.count
     }
@@ -157,7 +168,14 @@ class RestaurantTableViewController: UITableViewController {
 //        navigationController?.hidesBarsOnSwipe = true
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
-    
+        
+        // Add SearchBar
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        
+        definesPresentationContext = true
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
