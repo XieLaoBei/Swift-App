@@ -8,27 +8,11 @@
 
 import UIKit
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, UISearchResultsUpdating {
     
     @IBAction func unwindToHomeScreen (segue: UIStoryboardSegue) {
         
     }
-    
-    // Add SearchBar using UISearchController
-    var searchController: UISearchController!
-    var searchResults:[Restaurant] = []
-    
-    func filterContentForSearchText(searchText: String) {
-        searchResults = restaurants.filter({( restaurant: Restaurant) -> Bool in
-            let nameMatch = restaurant.name.range(of: searchText, options: NSString.CompareOptions.CaseInsensitiveSearch)
-            return nameMatch != nil
-        })
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.restaurants.count
-    }
-
     
     var restaurants:[Restaurant] = [
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po HingFong, Sheung Wan, Hong Kong", image: "cafedeadend.jpg", isVisited: true),
@@ -53,7 +37,37 @@ class RestaurantTableViewController: UITableViewController {
         Restaurant(name: "Royal Oak", type: "British", location: "2 Regency Street London SW1P4BZ United Kingdom", image: "royaloak.jpg", isVisited: false),
         Restaurant(name: "Thai Cafe", type: "Thai", location: "22 Charlwood Street London SW1V2DY Pimlico", image: "thaicafe.jpg", isVisited: false)
     ]
+
+    // Add SearchBar using UISearchController
+    var searchController: UISearchController!
+    var searchResults:[Restaurant] = []
     
+    func filterContentForSearchText(searchText: String) {
+          searchResults = restaurants.filter({( restaurant: Restaurant) -> Bool in
+            let nameMatch = restaurant.name.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return nameMatch != nil
+        })
+   }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        
+        filterContentForSearchText(searchText: searchText!)
+        
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the number of rows in the section.
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+        return self.restaurants.count
+    }
+}
+
+    
+        
     
     var restaurantIsVisited = [Bool](repeating: false, count: 21)
     
@@ -64,13 +78,13 @@ class RestaurantTableViewController: UITableViewController {
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! CustomTableViewCell
         
-        let restaurant = restaurants[indexPath.row]
-//        cell.nameLabel?.text = restaurantNames[indexPath.row]
+        let restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
+
         cell.nameLabel?.text = restaurant.name
         cell.thumbnailImageView?.image = UIImage(named: restaurant.image)
         cell.locationLabel?.text = restaurant.location
         cell.typeLabel.text = restaurant.type
-//        cell.favorIconImageView.hidden = !restaurant.isVisited
+
         
         
         // Create CornerRadius
@@ -85,25 +99,24 @@ class RestaurantTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt IndexPath: IndexPath) {
     // Delete All about the deleted Row
         if editingStyle == .delete {
-            /*
-            self.restaurantNames.remove(at: IndexPath.row)
-            self.restaurantLocations.remove(at: IndexPath.row)
-            self.restaurantTypes.remove(at: IndexPath.row)
-            self.restaurantImages.remove(at: IndexPath.row)
-            */
+            
             self.restaurants.remove(at: IndexPath.row)
         }
-        /*
-        print("Total item: \(self.restaurantNames.count)")
-        for name in restaurantNames {
-            print(name)
-        }
-        */
+        
         // Reload and refresh the tableVeiw
             self.tableView.deleteRows(at: [IndexPath], with: .fade)
-    }
     
     
+    // indecate the cell is non-editable when the search controller is active
+    func tableView(_ tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+            if searchController.isActive {
+                return false
+            } else {
+                return true
+            }
+        }
+        
+}
     // add editActionForRowAtIndexPath(Optional)
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
@@ -124,14 +137,7 @@ class RestaurantTableViewController: UITableViewController {
     )
     
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler: {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
-            /*
-            self.restaurantNames.remove(at: indexPath.row)
-            self.restaurantLocations.remove(at: indexPath.row)
-            self.restaurantTypes.remove(at: indexPath.row)
-            self.restaurantImages.remove(at: indexPath.row)
-            */
             self.restaurants.remove(at: indexPath.row)
-            
             self.tableView.deleteRows(at: [indexPath], with: .fade)
         }
     )
@@ -151,7 +157,7 @@ class RestaurantTableViewController: UITableViewController {
 
                 let destinationController = segue.destination as! DetailViewController
 //                destinationController.restaurantImage = self.restaurants[IndexPath.row].image
-                  destinationController.restaurant = restaurants[IndexPath.row]
+                destinationController.restaurant = (searchController.isActive) ? searchResults[IndexPath.row] : restaurants[IndexPath.row]
             }
         }
     }
@@ -175,6 +181,11 @@ class RestaurantTableViewController: UITableViewController {
         tableView.tableHeaderView = searchController.searchBar
         
         definesPresentationContext = true
+        
+        // Add Search ResultsUpdating
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+       
 
     }
     
