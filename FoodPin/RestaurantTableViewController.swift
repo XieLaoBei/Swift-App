@@ -186,8 +186,24 @@ class RestaurantTableViewController: UITableViewController, UISearchResultsUpdat
         // Add Search ResultsUpdating
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-       
+        
+        // Displaying the WalkThrough Screens
+        if let PageViewController = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController {
+            self.present(PageViewController, animated: true, completion: nil)
+        }
 
+        
+        // Add logic for estimating User Defaults Keys
+        let defaults = UserDefaults.standard
+        let hasViewedWalkthrough = defaults.bool(forKey: "hasViewedWalkthrough")
+        
+        if hasViewedWalkthrough == false {
+            if let pageViewController = storyboard?.instantiateViewController(withIdentifier:"PageViewController") as? PageViewController {
+                self.present(pageViewController, animated: true, completion: nil)
+            }
+        }
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

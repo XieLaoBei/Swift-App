@@ -13,6 +13,23 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var getStartedButton: UIButton!
+//    @IBOutlet weak var forwardButton: UIButton!
+    
+    // Add Action Methods for the getStartedButton & forwardButton
+    @IBAction func close(_ sender: Any) {
+        // Store the status of walkthrough has gone...
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "hasViewedWalkthrough")
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+//    @IBAction func nextScreen(sender: Any) {
+//        let pageViewController = self.parent as! PageViewController
+//        pageViewController.forward(index: index)
+//    }
     
     var index : Int = 0
     var heading : String = ""
@@ -26,6 +43,13 @@ class PageContentViewController: UIViewController {
         headingLabel.text = heading
         subHeadingLabel.text = subHeading
         contentImageView.image = UIImage(named: imageFile)
+        
+        // Add Custom Page indicator
+        pageControl.currentPage = index
+        
+        // Add getStarted & forwoad button
+        getStartedButton.isHidden = (index == 2) ? false : true
+//        forwardButton.isHidden = (index == 2) ? true : false
     }
 
     override func didReceiveMemoryWarning() {
