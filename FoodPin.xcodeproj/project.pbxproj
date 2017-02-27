@@ -19,6 +19,7 @@
 		E33CE1291E5E87A5009FAC39 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CE1281E5E87A5009FAC39 /* WebViewController.swift */; };
 		E341D0111E2E21CB009E466E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341D0101E2E21CB009E466E /* DetailViewController.swift */; };
 		E360B5EC1E472EAF00E71B95 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E360B5EB1E472EAF00E71B95 /* AddTableViewController.swift */; };
+		E363A1391E6443E000002A73 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E363A1381E6443E000002A73 /* FeedTableViewController.swift */; };
 		E369A9671E5C647700263B94 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E369A9661E5C647700263B94 /* PageContentViewController.swift */; };
 		E369A9691E5C67BC00263B94 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E369A9681E5C67BC00263B94 /* PageViewController.swift */; };
 		E369A96C1E61752B00263B94 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E369A96B1E61752B00263B94 /* CloudKit.framework */; };
@@ -67,6 +68,7 @@
 		E33CE1281E5E87A5009FAC39 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E341D0101E2E21CB009E466E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E360B5EB1E472EAF00E71B95 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		E363A1381E6443E000002A73 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		E369A9661E5C647700263B94 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		E369A9681E5C67BC00263B94 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		E369A96A1E61752300263B94 /* FoodPin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodPin.entitlements; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				E369A9681E5C67BC00263B94 /* PageViewController.swift */,
 				E33CE1261E5E8389009FAC39 /* AboutViewController.swift */,
 				E33CE1281E5E87A5009FAC39 /* WebViewController.swift */,
+				E363A1381E6443E000002A73 /* FeedTableViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				E336F5BF1E227191005C1E00 /* RestaurantTableViewController.swift in Sources */,
 				E360B5EC1E472EAF00E71B95 /* AddTableViewController.swift in Sources */,
 				E336F5931E226FA9005C1E00 /* ViewController.swift in Sources */,
+				E363A1391E6443E000002A73 /* FeedTableViewController.swift in Sources */,
 				E39AE0F51E34A0EE005C1580 /* DetailTableViewCell.swift in Sources */,
 				E39B826E1E451906003A39D7 /* MapViewController.swift in Sources */,
 				E3027F9E1E2F6C4800F29B4B /* Restaurant.swift in Sources */,
