@@ -14,6 +14,7 @@ class FeedTableViewController: UITableViewController {
     var restaurants:[CKRecord] = []
     
     func getRecordsFromCloud() {
+        /*
         //Fetch data using Convenience API
         _ = CKContainer.default()
         let pubilcDatabase = CKContainer.default().publicCloudDatabase
@@ -26,7 +27,7 @@ class FeedTableViewController: UITableViewController {
                 
                 self.restaurants = results! as [CKRecord]
                 
-                // add the reloadDdate to main Thread !
+                // add the reloadData to main Thread !
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
@@ -35,7 +36,51 @@ class FeedTableViewController: UITableViewController {
             }
         })
     }
+ */
+        
+        // Fatch data using Operational API
+        // Initialize an empty restaurants array
+        restaurants = []
+        
+        // Get the Public iCloud Database
+        _ = CKContainer.default()
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+        
+        // Prepare the query
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Restaurant", predicate: predicate)
+        
+        // Create the query operation with the query
+        let queryOperation = CKQueryOperation(query: query)
+        queryOperation.desiredKeys = ["name", "image"]
+        queryOperation.queuePriority = .veryHigh
+        queryOperation.resultsLimit = 50
+        queryOperation.recordFetchedBlock = {(record: CKRecord!) -> Void in
+            if let restaurantRecord = record {
+                self.restaurants.append(restaurantRecord)
+            }
+    }
+        queryOperation.queryCompletionBlock = {(cursor: CKQueryCursor?, error: NSError?) -> Void in
+            if (error != nil) {
+                print("Failed to get data from iCloud - \(error.localizedDescription)")
+            } else {
+                print("Successfully retrueve the data from iCloud")
+                
+                // add the reloadData to main Thread
+                DispatchQueue.main.async(execute: {
+                   self.tableView.reloadData()
+                })
+            }
+        }
+//            as! (CKQueryCursor?, Error?) -> Void
+        
+        // Execute the query
+        publicDatabase.add(queryOperation)
 
+    
+}
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getRecordsFromCloud()
