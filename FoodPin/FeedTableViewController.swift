@@ -25,7 +25,7 @@ class FeedTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.backgroundColor = UIColor.white
         refreshControl?.tintColor = UIColor.gray
-        refreshControl?.addTarget(self, action: Selector(("getRecordsfromCloud")), for: UIControlEvents.valueChanged)
+        refreshControl?.addTarget(self, action: #selector(FeedTableViewController.getRecordsFromCloud), for: UIControlEvents.valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -165,6 +165,16 @@ extension FeedTableViewController {
             }
         }
         queryOperation.queryCompletionBlock = {(cursor: CKQueryCursor?, error: Error?) -> Void in
+            
+            if (self.spinner?.isAnimating)! {
+                DispatchQueue.main.async(execute: {
+                    self.spinner?.stopAnimating()
+                })
+            }
+            
+            //Hide the refresh control
+            self.refreshControl?.endRefreshing()
+            
             if (error != nil) {
                 print("Failed to get data from iCloud - \(error?.localizedDescription)")
                 DispatchQueue.main.async(execute: {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -75,12 +76,44 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         dismiss(animated: true, completion: nil)
     }
 
-    
-    
+//MARK: - save data to Cloud
+    func saveRecordToCloud(_ restaurant: Restaurant) -> Void {
+        // Prepare the record to save
+        let record = CKRecord(recordType: "Restaurant")
+        record.setValue(restaurant.name, forKey: "name")
+        record.setValue(restaurant.type, forKey: "type")
+        record.setValue(restaurant.location, forKey: "location")
+        
+        // Resize the Image
+        let originalImage = UIImage(named: restaurant.image)
+        let scalingFactor = (originalImage!.size.width > 1024) ? 1024 / originalImage!.size.width : 1.0
+        let scaledImage = UIImage(data: UIImageJPEGRepresentation(originalImage!, 1)!, scale: scalingFactor)
+        
+        // Write the image to local file for temporary use
+        let imageFilePath = NSTemporaryDirectory() + restaurant.name
+        (UIImageJPEGRepresentation(scaledImage!, 0.8)! as NSData).write(toFile: imageFilePath, atomically: true)
+        
+        // Create image asset for upload
+        let imageFileURL = NSURL(fileURLWithPath: imageFilePath)
+        let imageAsset = CKAsset(fileURL: imageFileURL as URL)
+        record.setValue(imageAsset, forKey: "image")
+        
+        // Get the Public iCloud Database
+        _ = CKContainer.default()
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+        
+        // save the record to iCloud
+        publicDatabase.save(record, completionHandler: {(record: CKRecord!, error: Error!) -> Void in
+            // Remove temp file
+            try FileManager.default.removeItem(at: imageFileURL as URL)
+            
+            if (error != nil) {
+                print("Failed to save record to the cloud: \(NSError.description)")
+            }
+            } as! (CKRecord?, Error?) -> Void)
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-
-   
 }
